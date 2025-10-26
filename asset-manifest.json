@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/spacey/static/css/main.6800da21.css",
+    "main.js": "/spacey/static/js/main.d07d7e31.js",
+    "index.html": "/spacey/index.html",
+    "main.6800da21.css.map": "/spacey/static/css/main.6800da21.css.map",
+    "main.d07d7e31.js.map": "/spacey/static/js/main.d07d7e31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6800da21.css",
+    "static/js/main.d07d7e31.js"
+  ]
+}
