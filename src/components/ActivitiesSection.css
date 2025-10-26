@@ -1,0 +1,147 @@
+.activities-section {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  padding: 100px 0;
+  margin: 100px 0;
+}
+
+.activities-container {
+  position: relative;
+  max-width: 1341px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 620px;
+}
+
+.activities-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1071px;
+  height: 160px;
+}
+
+.activities-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 215px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.activity-item:hover {
+  transform: scale(1.05);
+}
+
+.activity-image-container {
+  width: 170px;
+  height: 170px;
+  flex-shrink: 0;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(138, 43, 226, 0.2);
+}
+
+.activity-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-title {
+  display: flex;
+  width: 180px;
+  height: 45px;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #CCCCCC;
+  text-align: center;
+  font-family: 'Exo', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1200px) {
+  .activities-grid {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 200px;
+  }
+  
+  .activity-item {
+    position: static !important;
+  }
+  
+  .activities-title {
+    position: static;
+    width: auto;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .activities-container {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .activities-grid {
+    gap: 30px;
+    margin-top: 150px;
+  }
+  
+  .activity-item {
+    width: 150px;
+    height: 185px;
+  }
+  
+  .activity-image-container {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .activity-title {
+    width: 150px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activities-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 100px;
+  }
+  
+  .activity-item {
+    width: 120px;
+    height: 155px;
+  }
+  
+  .activity-image-container {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .activity-title {
+    width: 120px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,19 @@
+.project-details h2 {
+  margin-bottom: 20px;
+}
+
+.project-details p {
+  margin-bottom: 30px;
+}
+
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.project-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

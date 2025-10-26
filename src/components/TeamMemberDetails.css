@@ -1,0 +1,15 @@
+.team-member-details {
+  display: flex;
+  gap: 30px;
+}
+
+.team-member-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-member-info h2 {
+  margin-bottom: 20px;
+}

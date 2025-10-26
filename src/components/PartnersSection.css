@@ -1,0 +1,184 @@
+.partners-section {
+  position: relative;
+  width: 100%;
+  min-height: 655px;
+  padding: 100px 0;
+  margin: 100px 0;
+  overflow: hidden;
+}
+
+.partners-container {
+  position: relative;
+  width: 100%;
+  height: 655px;
+}
+
+.partners-scroll-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.partners-row {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+}
+
+.partners-row-top {
+  top: 0;
+  left: 0;
+}
+
+.partners-row-bottom {
+  top: 200px;
+  left: 0;
+  animation-direction: reverse;
+}
+
+.sponsor-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 251px;
+  height: 73px;
+  cursor: pointer;
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.sponsor-item:hover {
+  transform: scale(1.05);
+}
+
+.sponsor-item img {
+  width: 500%;
+  height: 500%;
+  object-fit: contain;
+  filter: grayscale(0%) brightness(1.2);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.sponsor-button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.button-background {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 1px solid rgba(138, 43, 226, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+}
+
+.sponsor-item:hover .button-background {
+  /* No background change on hover, as the default is already the desired look */
+}
+
+.sponsor-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #1A0033;
+}
+
+.placeholder-text {
+  font-family: 'Exo', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #CCCCCC;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .partners-section {
+    min-height: 300px;
+    margin: 50px 0;
+  }
+  
+  .partners-container {
+    height: 300px;
+  }
+  
+  .partners-row {
+    gap: 15px;
+  }
+  
+  .partners-row-bottom {
+    top: 150px;
+  }
+  
+  .sponsor-item {
+    width: 200px;
+    height: 60px;
+  }
+  
+  .sponsor-item img {
+    height: 120px;
+  }
+  
+  .sponsor-button {
+    width: 200px;
+    height: 60px;
+  }
+  
+  .placeholder-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-section {
+    min-height: 250px;
+  }
+  
+  .partners-container {
+    height: 250px;
+  }
+  
+  .partners-row {
+    gap: 10px;
+  }
+  
+  .partners-row-bottom {
+    top: 125px;
+  }
+  
+  .sponsor-item {
+    width: 150px;
+    height: 45px;
+  }
+  
+  .sponsor-item img {
+    height: 90px;
+  }
+  
+  .sponsor-button {
+    width: 150px;
+    height: 45px;
+  }
+  
+  .placeholder-text {
+    font-size: 12px;
+  }
+}
