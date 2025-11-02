@@ -64,7 +64,7 @@
 
 .about-pill {
   font-family: 'Exo', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 150%;
   color: #FFF;
@@ -72,7 +72,7 @@
   border-radius: 100px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   display: inline-block;
-  width: 550px;
+  width: 450px;
   text-align: center;
 }
 
@@ -81,6 +81,10 @@
     flex-direction: column;
     gap: 40px;
     text-align: center;
+  }
+  
+  .team-photo {
+    margin-top: 0;
   }
   
   .team-photo img {

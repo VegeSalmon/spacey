@@ -52,8 +52,8 @@
 }
 
 .sponsor-item img {
-  width: 500%;
-  height: 500%;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
   filter: grayscale(0%) brightness(1.2);
   opacity: 0.8;
@@ -69,6 +69,9 @@
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-background {
@@ -110,6 +113,10 @@
   text-align: center;
 }
 
+.megakoszulki-sponsor img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 @media (max-width: 768px) {
   .partners-section {
     min-height: 300px;
@@ -129,17 +136,17 @@
   }
   
   .sponsor-item {
-    width: 200px;
-    height: 60px;
+    width: 220px;
+    height: 70px;
   }
   
   .sponsor-item img {
-    height: 120px;
+    height: 80%;
   }
   
   .sponsor-button {
-    width: 200px;
-    height: 60px;
+    width: 220px;
+    height: 70px;
   }
   
   .placeholder-text {
