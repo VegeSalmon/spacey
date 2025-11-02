@@ -18,6 +18,8 @@ function App() {
     const sections = gsap.utils.toArray('section');
 
     sections.forEach((section) => {
+      const isAboutSection = section.id === 'projekt';
+
       gsap.fromTo(section, 
         { opacity: 0, y: 100 }, 
         { 
@@ -29,7 +31,7 @@ function App() {
             start: 'top 80%',
             end: 'top 50%',
             scrub: false,
-            toggleActions: 'play none none none'
+            toggleActions: isAboutSection ? 'play none none reverse' : 'play none none none'
           }
         }
       );
