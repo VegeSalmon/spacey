@@ -22,19 +22,19 @@ const ActivitiesSection = () => {
     {
       id: 'rakieta',
       title: 'Rakieta',
-      image: '/rakieta.png',
+      image: process.env.PUBLIC_URL + '/rakieta.png',
       position: { top: '125px', right: '161px' }
     },
     {
       id: 'microsat',
       title: 'Micro Satelita',
-      image: '/microsat.png',
+      image: process.env.PUBLIC_URL + '/microsat.png',
       position: { top: '327px', left: '295px' }
     },
     {
       id: 'edukacja',
       title: 'Edukacja',
-      image: '/edukacja.png',
+      image: process.env.PUBLIC_URL + '/edukacja.png',
       position: { top: '405px', right: '354px' }
     }
   ];

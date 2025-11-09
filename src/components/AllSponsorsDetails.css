@@ -1,0 +1,44 @@
+.all-sponsors-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sponsor-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sponsor-display.logo-right {
+  flex-direction: row-reverse;
+}
+
+.sponsor-logo-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.sponsor-description-container {
+  flex: 2;
+}
+
+.sponsor-details-logo {
+  width: 100%;
+  height: auto;
+}
+
+.megakoszulki-sponsor .sponsor-details-logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .sponsor-display, .sponsor-display.logo-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -110,22 +110,22 @@
   }
   
   .team-member {
-    width: 220px;
+    width: 250px;
   }
   
   .member-image-container {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
   }
   
   .member-name {
-    width: 220px;
+    width: 250px;
     font-size: 28px;
     height: 70px;
   }
   
   .member-role {
-    width: 220px;
+    width: 250px;
     font-size: 16px;
     height: 40px;
   }
@@ -139,22 +139,22 @@
   }
   
   .team-member {
-    width: 180px;
+    width: 220px;
   }
   
   .member-image-container {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
   }
   
   .member-name {
-    width: 180px;
+    width: 220px;
     font-size: 24px;
     height: 60px;
   }
   
   .member-role {
-    width: 180px;
+    width: 220px;
     font-size: 14px;
     height: 35px;
   }

@@ -13,3 +13,10 @@
 .team-member-info h2 {
   margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+  .team-member-details {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-logo">
-            <img src="/Logo.png" alt="Logo" />
+            <img src={process.env.PUBLIC_URL + "/Logo.png"} alt="Logo" />
           </div>
           <div className="footer-sections">
             <div className="footer-section">

@@ -17,48 +17,33 @@ const AboutSection = () => {
         const sectionHeight = rect.height;
         const viewportHeight = window.innerHeight;
 
-        let progress = (scrollY - (sectionTop - viewportHeight)) / (sectionHeight + viewportHeight);
+        // Adjust the animation to start later and end sooner
+        const animationStart = sectionTop - viewportHeight * 0.8; // Start when 80% of the section is visible
+        const animationEnd = sectionTop + sectionHeight - viewportHeight * 0.2; // End when 20% of the section is left
+        const animationDuration = animationEnd - animationStart;
+
+        let progress = (scrollY - animationStart) / animationDuration;
         progress = Math.max(0, Math.min(1, progress));
 
         const easedProgress = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
 
-
         const teamPhotoRect = teamPhotoRef.current.getBoundingClientRect();
-        const aboutInfoRect = aboutInfoRef.current.getBoundingClientRect();
 
-        // Waypoints for the animation path
-        const p0 = { x: -100, y: teamPhotoRect.top - 100 };
-        const p1 = { x: teamPhotoRect.left, y: teamPhotoRect.top - 50 };
-        const p2 = { x: (teamPhotoRect.right + aboutInfoRect.left) / 2, y: (teamPhotoRect.top + aboutInfoRect.top) / 2 };
-        const p3 = { x: (teamPhotoRect.right + aboutInfoRect.left) / 2, y: teamPhotoRect.bottom + 50 };
-        const p4 = { x: window.innerWidth + 100, y: p3.y };
+        // Quadratic Bezier curve for a 'right, down, right' path
+        const p0 = { x: -300, y: teamPhotoRect.top };
+        const p1 = { x: window.innerWidth / 2, y: teamPhotoRect.bottom + 500 };
+        const p2 = { x: window.innerWidth + 300, y: teamPhotoRect.bottom + 300 };
 
-        let x, y;
-
-        if (easedProgress <= 0.25) {
-          const segmentProgress = easedProgress / 0.25;
-          x = p0.x + (p1.x - p0.x) * segmentProgress;
-          y = p0.y + (p1.y - p0.y) * segmentProgress;
-        } else if (easedProgress <= 0.5) {
-          const segmentProgress = (easedProgress - 0.25) / 0.25;
-          x = p1.x + (p2.x - p1.x) * segmentProgress;
-          y = p1.y + (p2.y - p1.y) * segmentProgress;
-        } else if (easedProgress <= 0.75) {
-          const segmentProgress = (easedProgress - 0.5) / 0.25;
-          x = p2.x + (p3.x - p2.x) * segmentProgress;
-          y = p2.y + (p3.y - p2.y) * segmentProgress;
-        } else {
-          const segmentProgress = (easedProgress - 0.75) / 0.25;
-          x = p3.x + (p4.x - p3.x) * segmentProgress;
-          y = p3.y + (p4.y - p3.y) * segmentProgress;
-        }
+        const t = easedProgress;
+        const x = Math.pow(1 - t, 2) * p0.x + 2 * (1 - t) * t * p1.x + Math.pow(t, 2) * p2.x;
+        const y = Math.pow(1 - t, 2) * p0.y + 2 * (1 - t) * t * p1.y + Math.pow(t, 2) * p2.y;
 
         setRocketStyle({
           position: 'fixed',
           top: `${y}px`,
           left: `${x}px`,
           transform: 'translate(-50%, -50%)',
-          width: '100px',
+          width: '200px',
           height: 'auto',
           zIndex: 1,
         });

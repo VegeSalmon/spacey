@@ -7,19 +7,19 @@ const ContactSection = () => {
       name: 'TikTok',
       position: 'left',
       height: 'high',
-      icon: <img src="/tiktok_icon.svg" alt="TikTok" />
+      icon: <img src={process.env.PUBLIC_URL + "/tiktok_icon.svg"} alt="TikTok" />
     },
     {
       name: 'Instagram',
       position: 'center',
       height: 'low',
-      icon: <img src="/Instagram_logo_2022.svg" alt="Instagram" />
+      icon: <img src={process.env.PUBLIC_URL + "/Instagram_logo_2022.svg"} alt="Instagram" />
     },
     {
       name: 'Facebook',
       position: 'right',
       height: 'medium',
-      icon: <img src="/2021_Facebook_icon.svg" alt="Facebook" />
+      icon: <img src={process.env.PUBLIC_URL + "/2021_Facebook_icon.svg"} alt="Facebook" />
     }
   ];
 
@@ -47,7 +47,6 @@ const ContactSection = () => {
           </div>
           
           <div className="donation-card">
-            <div className="card-border"></div>
             <div className="card-content">
               <div className="card-title">
                 Pomóż nam!

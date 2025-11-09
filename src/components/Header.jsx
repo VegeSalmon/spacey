@@ -1,53 +1,71 @@
-import React, { useState, useEffect } from "react";
-import "./Header.css";
+import React, { useState, useEffect } from 'react';
+import './Header.css';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('projekt');
+  const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
-      const sections = ['projekt', 'partnerzy', 'zespol', 'kontakt'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      setActiveLink(hash);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); 
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const getLinkClass = (hash) => {
+    return `nav-link ${activeLink === hash ? 'active' : ''}`;
+  };
+
   return (
-    <header className={`header ${isScrolled ? "scrolled" : "transparent"}`}>
+    <header className={`header ${scrolled ? 'scrolled' : 'transparent'} ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="header-container">
         <div className="logo">
-          <img src="/Logo.png" alt="Logo" />
+          <a href="#home" onClick={closeMenu}>
+            <img src={`${process.env.PUBLIC_URL}/Logo.png`} alt="SpaceY Logo" />
+          </a>
         </div>
-        <nav className="navigation">
-          <a href="#projekt" className={`nav-link ${activeSection === 'projekt' ? 'active' : ''}`}>
-            Nasz Projekt
-          </a>
-          <a href="#partnerzy" className={`nav-link ${activeSection === 'partnerzy' ? 'active' : ''}`}>
-            Partnerzy
-          </a>
-          <a href="#zespol" className={`nav-link ${activeSection === 'zespol' ? 'active' : ''}`}>
-            Zespół
-          </a>
-          <a href="#kontakt" className={`nav-link ${activeSection === 'kontakt' ? 'active' : ''}`}>
-            Kontakt
-          </a>
+        <nav className={`navigation ${isMenuOpen ? 'open' : ''}`}>
+          <a href="#projekt" className={getLinkClass('projekt')} onClick={closeMenu}>Projekt</a>
+          <a href="#dzialania" className={getLinkClass('dzialania')} onClick={closeMenu}>Działania</a>
+          <a href="#partnerzy" className={getLinkClass('partnerzy')} onClick={closeMenu}>Partnerzy</a>
+          <a href="#zespol" className={getLinkClass('zespol')} onClick={closeMenu}>Zespół</a>
+          <a href="#kontakt" className={getLinkClass('kontakt')} onClick={closeMenu}>Kontakt</a>
         </nav>
+        <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
       </div>
     </header>
   );
